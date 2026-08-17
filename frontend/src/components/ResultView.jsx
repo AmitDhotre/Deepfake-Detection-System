@@ -93,7 +93,7 @@ export default function ResultView({ result, onReset, mediaUrl }) {
         <div className="flex items-start gap-2 bg-amber-500/[0.06] border border-amber-500/20 text-amber-300 text-xs rounded-2xl p-4 animate-fade-up">
           <Info size={16} className="shrink-0 mt-0.5" />
           <p>
-            Running in <strong>heuristic mode</strong> — no trained model is loaded. This score comes from
+            Running in <strong>heuristic mode</strong>. No trained model is loaded, so this score comes from
             forensic signal-processing rules, not a validated classifier. Train a model for measured accuracy.
           </p>
         </div>

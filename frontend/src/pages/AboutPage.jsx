@@ -1,5 +1,5 @@
 import React from 'react';
-import { Waves, Volume2, Contrast, Palette, Cpu, Layers, ArrowRight, ShieldAlert } from 'lucide-react';
+import { Waves, Volume2, Contrast, Palette, ArrowRight } from 'lucide-react';
 
 const SIGNALS = [
   { icon: Waves, title: 'Frequency Artifacts', desc: 'GAN and diffusion decoders leave characteristic spectral checkerboard patterns. Measured via the ratio of high-frequency to total FFT energy.' },
@@ -15,7 +15,7 @@ export default function AboutPage({ onStartScan }) {
         <h1 className="text-white text-3xl font-bold tracking-tight mb-3">How It Works</h1>
         <p className="text-gray-400 text-sm leading-relaxed">
           This system runs a three-tier detection pipeline and always uses the strongest model
-          that's actually available — falling back gracefully rather than failing.
+          that's actually available, falling back gracefully when nothing has been trained yet.
         </p>
       </div>
 
@@ -25,7 +25,7 @@ export default function AboutPage({ onStartScan }) {
           title="Heuristic Forensic Analyzer"
           badge="Always available"
           badgeColor="emerald"
-          desc="Four independent signal-processing measurements, combined into a weighted score. No training data required, but not a validated classifier — treat the percentage as a signal, not a verdict."
+          desc="Four independent signal-processing measurements, combined into a weighted score. No training data required, but it's not a validated classifier. Treat the percentage as a signal, not a verdict."
         />
         <TierCard
           num="2"
@@ -39,7 +39,7 @@ export default function AboutPage({ onStartScan }) {
           title="Trained Xception / InceptionV3+GRU"
           badge="Best accuracy"
           badgeColor="blue"
-          desc="Transfer-learning models fine-tuned on the 140k Real and Fake Faces dataset — reaches the highest measured accuracy of the three tiers once trained and evaluated."
+          desc="Transfer-learning models fine-tuned on the 140k Real and Fake Faces dataset. Reaches the highest measured accuracy of the three tiers once trained and evaluated."
         />
       </div>
 
@@ -57,15 +57,6 @@ export default function AboutPage({ onStartScan }) {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="flex items-start gap-3 bg-amber-500/[0.06] border border-amber-500/20 rounded-2xl p-5 mb-12 animate-fade-up">
-        <ShieldAlert size={18} className="text-amber-400 shrink-0 mt-0.5" />
-        <p className="text-amber-300/90 text-xs leading-relaxed">
-          <strong>No detector is perfect.</strong> Generative models improve constantly, and both the
-          heuristic analyzer and any trained model can be wrong — especially on high-quality, compressed,
-          or adversarially crafted media. Use results as one input among several, not a final determination.
-        </p>
       </div>
 
       <div className="text-center animate-fade-up">

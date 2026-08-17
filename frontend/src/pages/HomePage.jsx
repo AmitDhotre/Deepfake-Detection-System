@@ -2,14 +2,14 @@ import React from 'react';
 import { Radar, ScanFace, Cpu, Layers, ShieldCheck, ArrowRight, Waves, History } from 'lucide-react';
 
 const FEATURES = [
-  { icon: Waves, title: 'Forensic Signal Analysis', desc: 'Frequency artifacts, noise consistency, edge sharpness, and color mismatch — always available, no training required.' },
+  { icon: Waves, title: 'Forensic Signal Analysis', desc: 'Checks frequency artifacts, noise consistency, edge sharpness, and color mismatch. Works out of the box, no training required.' },
   { icon: Cpu, title: 'Trainable CNN Pipeline', desc: 'Drop in trained Xception or ResNet18 weights and the API automatically upgrades from heuristic to model-based scoring.' },
   { icon: Layers, title: 'Image & Video Support', desc: 'Frame-sampled video analysis with per-frame scoring and temporal variance, alongside single-image scans.' },
   { icon: History, title: 'Local Scan History', desc: 'Every scan is saved in your browser so you can revisit past results and track patterns over time.' },
 ];
 
 const PIPELINE = [
-  { step: '01', title: 'Heuristic Analyzer', desc: 'Signal-processing rules — always active as a fallback.' },
+  { step: '01', title: 'Heuristic Analyzer', desc: 'Signal-processing rules that run as a fallback whenever no trained model is loaded.' },
   { step: '02', title: 'Trained CNN', desc: 'ResNet18 or Xception, once you train and drop in weights.' },
   { step: '03', title: 'Auto-Selection', desc: 'The API picks the strongest available model automatically.' },
 ];
@@ -26,8 +26,8 @@ export default function HomePage({ onStartScan }) {
           Detect Deepfakes<br />Before They Spread
         </h1>
         <p className="text-gray-400 text-base mt-5 max-w-lg mx-auto leading-relaxed">
-          Upload an image or video and get an instant forensic breakdown — frequency artifacts,
-          noise inconsistency, edge softness, and more — backed by a trainable CNN pipeline.
+          Upload an image or video and get a forensic breakdown of frequency artifacts,
+          noise inconsistency, and edge softness, backed by a trainable CNN pipeline.
         </p>
         <button
           onClick={onStartScan}

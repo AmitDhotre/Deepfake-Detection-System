@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ScanPage from './pages/ScanPage';
 import HistoryPage from './pages/HistoryPage';
 import AboutPage from './pages/AboutPage';
+import Footer from './components/Footer';
 import { saveScanToHistory, loadScanHistory, clearScanHistory } from './components/ScanHistory';
 
 const API_BASE = 'http://localhost:8000';
@@ -101,9 +102,7 @@ function App() {
         {page === 'about' && <AboutPage onStartScan={goToScan} />}
       </main>
 
-      <footer className="text-gray-700 text-[11px] text-center py-6">
-        Forensic signals + trainable CNN pipeline · results are not a legal determination
-      </footer>
+      <Footer />
     </div>
   );
 }
