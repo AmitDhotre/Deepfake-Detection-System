@@ -1,0 +1,9 @@
+fastapi==0.110.0
+uvicorn==0.27.1
+opencv-python-headless==4.9.0.80
+pillow>=10.4.0
+python-multipart==0.0.9
+numpy==1.26.4
+
+# Optional — only needed if you train/run a real model. Install separately:
+#   pip install -r requirements-train.txt

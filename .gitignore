@@ -1,0 +1,26 @@
+# Python
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+
+# ML Models
+weights/
+backend/weights/
+*.h5
+*.pth
+*.pt
+
+# Dataset
+datasets/
+dataset/
+
+# Frontend
+node_modules/
+dist/
+
+# Environment
+.env
+
+# Jupyter
+.ipynb_checkpoints/
