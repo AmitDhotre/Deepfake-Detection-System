@@ -1,5 +1,6 @@
 import React from 'react';
-import { ShieldHalf, Home, ScanFace, History, Info, Menu, X } from 'lucide-react';
+import { Home, ScanFace, History, Info, Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home', icon: Home },
@@ -33,8 +34,7 @@ export default function Navbar({ page, setPage, backendStatus }) {
     <nav className="w-full sticky top-0 z-30 bg-[#0b1121]/85 backdrop-blur-md border-b border-white/5">
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-3.5">
         <button onClick={() => setPage('home')} className="flex items-center gap-2 shrink-0">
-          <ShieldHalf size={18} className="text-blue-400" />
-          <span className="text-white text-sm font-bold tracking-wide">DEEPFAKE.AI</span>
+          <Logo size={22} />
         </button>
 
         <div className="hidden md:flex items-center gap-1">

@@ -1,0 +1,16 @@
+<svg width="100%" viewBox="0 0 680 260" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Veritas logo</title>
+<desc>A shield icon split into two halves: a clean face outline on the left representing authentic media, and fragmented pixel blocks on the right representing manipulated media, divided by a horizontal scan line, next to the wordmark VERITAS.</desc>
+<g transform="translate(260,20)">
+  <path d="M80,10 L150,40 L150,95 C150,145 120,180 80,200 C40,180 10,145 10,95 L10,40 Z" fill="none" stroke="#4da3ff" stroke-width="4"/>
+  <line x1="10" y1="110" x2="150" y2="110" stroke="#4da3ff" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="80" cy="75" r="26" fill="none" stroke="#4da3ff" stroke-width="3"/>
+  <path d="M56,95 C56,130 104,130 104,95" fill="none" stroke="#4da3ff" stroke-width="3"/>
+  <rect x="92" y="120" width="10" height="10" fill="#4da3ff" opacity="0.8"/>
+  <rect x="108" y="132" width="7" height="7" fill="#4da3ff" opacity="0.6"/>
+  <rect x="86" y="140" width="14" height="6" fill="#4da3ff" opacity="0.5"/>
+  <rect x="112" y="118" width="6" height="14" fill="#4da3ff" opacity="0.7"/>
+</g>
+<text x="60" y="150" font-size="34" fill="#e2e8f0" font-weight="500" font-family="anthropic-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">VERIT<tspan fill="#4da3ff">AS</tspan></text>
+<text x="60" y="178" font-size="15" fill="#64748b" font-family="anthropic-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Intelligent Deepfake Detection Platform</text>
+</svg>
