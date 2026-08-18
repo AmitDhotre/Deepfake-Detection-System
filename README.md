@@ -8,16 +8,25 @@ Veritas is a full-stack media authenticity analysis platform that detects manipu
 ## Architecture
  
 ```
-┌─────────────┐      HTTP       ┌──────────────┐      selects       ┌────────────────────┐
-│  React SPA  │ ───────────────▶│   FastAPI    │ ───────────────────▶ strongest available │
-│  (Vite)     │◀─────────────── │   Backend    │◀──────────────────── model at runtime     │
-└─────────────┘   JSON result   └──────────────┘                    └────────────────────┘
-                                        │
-                        ┌───────────────┼───────────────┐
-                        ▼               ▼               ▼
-                 Heuristic         PyTorch CNN     Keras Xception /
-                 Forensic          (ResNet18)      InceptionV3+GRU
-                 Analyzer                          (video temporal)
+┌─────────────┐      HTTP / JSON      ┌──────────────┐
+│  React SPA  │─────────────────────▶│ FastAPI      │
+│   (Vite)    │◀─────────────────────│ Backend      │
+└─────────────┘                       └──────┬───────┘
+                                            │
+                                            ▼
+                              ┌────────────────────────┐
+                              │ Model Auto-Selector    │
+                              │ Chooses Best Available │
+                              └───────────┬────────────┘
+                                          │
+                    ┌─────────────────────┼─────────────────────┐
+                    │                     │                     │
+                    ▼                     ▼                     ▼
+          ┌────────────────┐   ┌────────────────┐   ┌────────────────────┐
+          │   Heuristic    │   │  PyTorch CNN   │   │ Keras Xception /   │
+          │   Forensic     │   │   (ResNet18)   │   │ InceptionV3 + GRU  │
+          │   Analyzer     │   │                │   │ (Video Temporal)   │
+          └────────────────┘   └────────────────┘   └────────────────────┘
 ```
  
 ## Detection Pipeline
