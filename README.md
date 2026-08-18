@@ -7,7 +7,7 @@ Veritas is a full-stack media authenticity analysis platform that detects manipu
 
 ## Architecture
  
-<p align="center"> <img src="Screenshots/architecture.png" alt="Veritas architecture diagram" width="820" /> </p>
+<p align="center"> <img src="Screenshots/architecture.svg" alt="Veritas architecture diagram" width="820" /> </p>
  
 ## Detection Pipeline
  
