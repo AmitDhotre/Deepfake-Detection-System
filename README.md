@@ -13,14 +13,14 @@ A full-stack AI-powered **Deepfake Detection Platform** that analyzes images and
 
 ## 🚀 Features
 
-- 🎥 Image & Video Deepfake Detection
-- 📊 Forensic Signal Breakdown (frequency artifacts, noise consistency, edge sharpness, chroma consistency)
-- 🧠 Auto-Selecting 3-Tier Pipeline (heuristic → trained CNN → trained Xception)
-- 📈 Confidence Gauge, Radar Chart & Per-Frame Timeline for video
-- 🕓 Local Scan History with expandable signal detail
-- 🌐 Multi-Page Interactive Dashboard (Home, Scan, History, How It Works)
-- ⚡ FastAPI Backend with Automatic Model Detection
-- 🏋️ Trainable on a Real 140k-Image Labeled Dataset
+-  Image & Video Deepfake Detection
+-  Forensic Signal Breakdown (frequency artifacts, noise consistency, edge sharpness, chroma consistency)
+-  Auto-Selecting 3-Tier Pipeline (heuristic → trained CNN → trained Xception)
+-  Confidence Gauge, Radar Chart & Per-Frame Timeline for video
+-  Local Scan History with expandable signal detail
+-  Multi-Page Interactive Dashboard (Home, Scan, History, How It Works)
+-  FastAPI Backend with Automatic Model Detection
+-  Trainable on a Real 140k-Image Labeled Dataset
 
 ---
 
