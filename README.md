@@ -1,8 +1,13 @@
-# 🎭 Deepfake Detection System
+<p align="center">
+  <img src="./frontend/src/assets/veritas-icon.svg" alt="Veritas logo" width="70" />
+</p>
+
+<h1 align="center">🛡️ VERITAS</h1>
+<p align="center"><b>Intelligent Deepfake Detection Platform</b></p>
 
 ## 📌 Project Overview
 
-A full-stack AI-powered **Deepfake Detection System** that analyzes images and videos to determine whether they're authentic or AI-generated/manipulated. The system runs a three-tier detection pipeline — a heuristic forensic-signal analyzer, a PyTorch CNN, and a Keras Xception/InceptionV3+GRU model — and automatically uses the strongest model actually available, with a multi-page interactive React dashboard for results.
+A full-stack AI-powered **Deepfake Detection Platform** that analyzes images and videos to determine whether they're authentic or AI-generated/manipulated. Veritas runs a three-tier detection pipeline — a heuristic forensic-signal analyzer, a PyTorch CNN, and a Keras Xception/InceptionV3+GRU model — and automatically uses the strongest model actually available, with a multi-page interactive React dashboard for results.
 
 ---
 
@@ -50,7 +55,7 @@ A full-stack AI-powered **Deepfake Detection System** that analyzes images and v
 ## 📂 Project Structure
 
 ```text
-deepfake-project/
+veritas/
 ├── backend/
 │   ├── main.py                  FastAPI app, auto-selects strongest model
 │   ├── detector.py              Heuristic forensic analyzer
@@ -65,8 +70,10 @@ deepfake-project/
 ├── frontend/
 │   └── src/
 │       ├── App.jsx
-│       ├── pages/               Home, Scan, History, About
-│       └── components/          Navbar, UploadView, ResultView, SignalBars, ScanHistory
+│       ├── assets/
+│       │   └── veritas-icon.svg     Logo mark
+│       ├── pages/                   Home, Scan, History, About
+│       └── components/              Navbar, Logo, Footer, UploadView, ResultView, SignalBars, ScanHistory
 └── README.md
 ```
 
@@ -179,4 +186,4 @@ Computer Engineering Student | AI & Data Science Enthusiast
 
 ## ⭐ Support
 
-If you found this project useful, consider giving it a star on GitHub.
+If you found Veritas useful, consider giving it a star on GitHub.
