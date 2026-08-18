@@ -1,6 +1,6 @@
-<p align="center">
+<!-- <p align="center">
   <img src="./frontend/src/assets/veritas-icon.svg" alt="Veritas logo" width="70" />
-</p>
+</p> -->
 
 <h1 align="center">🛡️ VERITAS</h1>
 <p align="center"><b>Intelligent Deepfake Detection Platform</b></p>
