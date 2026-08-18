@@ -7,27 +7,7 @@ Veritas is a full-stack media authenticity analysis platform that detects manipu
 
 ## Architecture
  
-```
-┌─────────────┐      HTTP / JSON      ┌──────────────┐
-│  React SPA  │─────────────────────▶│ FastAPI      │
-│   (Vite)    │◀─────────────────────│ Backend      │
-└─────────────┘                       └──────┬───────┘
-                                            │
-                                            ▼
-                              ┌────────────────────────┐
-                              │ Model Auto-Selector    │
-                              │ Chooses Best Available │
-                              └───────────┬────────────┘
-                                          │
-                    ┌─────────────────────┼─────────────────────┐
-                    │                     │                     │
-                    ▼                     ▼                     ▼
-          ┌────────────────┐   ┌────────────────┐   ┌────────────────────┐
-          │   Heuristic    │   │  PyTorch CNN   │   │ Keras Xception /   │
-          │   Forensic     │   │   (ResNet18)   │   │ InceptionV3 + GRU  │
-          │   Analyzer     │   │                │   │ (Video Temporal)   │
-          └────────────────┘   └────────────────┘   └────────────────────┘
-```
+<p align="center"> <img src="Screenshots/architecture.png" alt="Veritas architecture diagram" width="820" /> </p>
  
 ## Detection Pipeline
  
