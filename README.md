@@ -133,6 +133,3 @@ Outputs precision, recall, F1, and ROC-AUC against the held-out test split defin
 **Amit Dhotre**
 Computer Engineering student, AI & Data Science.
  
-## License
- 
-MIT — see `LICENSE` for details.
