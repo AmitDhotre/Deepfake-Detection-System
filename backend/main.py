@@ -7,9 +7,17 @@ import detector
 
 app = FastAPI(title="Deepfake Detection API")
 
+# In production, set ALLOWED_ORIGINS to your deployed frontend's URL
+# (comma-separated for multiple), e.g.:
+#   ALLOWED_ORIGINS=https://your-app.vercel.app
+# Falls back to "*" (allow everything) for local development so you don't
+# have to configure anything to run this on your machine.
+_allowed_origins = os.environ.get("ALLOWED_ORIGINS", "*")
+ALLOWED_ORIGINS = [o.strip() for o in _allowed_origins.split(",")] if _allowed_origins != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -106,10 +114,11 @@ async def root():
         "status": "Backend is running successfully",
         "mode": mode,
         "keras_image_model": KERAS_IMAGE_AVAILABLE,
-        "keras_video_model": KERAS_VIDEO_AVAILABLE,
+        "kesras_video_model": KERAS_VIDEO_AVAILABLE,
         "torch_model": TORCH_AVAILABLE,
     }
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 const SOCIAL_LINKS = [
   { icon: Instagram, href: 'https://www.instagram.com/amit_dhotre_06/', label: 'Instagram' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/amit-dhotre-995aa4324/', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/amit-dhotre/', label: 'LinkedIn' },
   { icon: Twitter, href: 'https://x.com/Amitvd93', label: 'X (Twitter)' },
   { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=100072180246893', label: 'Facebook' },
   { icon: Mail, href: 'mailto:amitdhoter976@gaiml.com', label: 'Email' },

@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.git/
+# Trained weights are large — see README for how to get them into the
+# deployed container (mounted volume, cloud storage, or committed via Git LFS).
+weights/*.h5
+weights/*.pth
+weights/*.keras

@@ -8,7 +8,10 @@ import AboutPage from './pages/AboutPage';
 import Footer from './components/Footer';
 import { saveScanToHistory, loadScanHistory, clearScanHistory } from './components/ScanHistory';
 
-const API_BASE = 'http://localhost:8000';
+// In dev this falls back to your local backend. In production, set
+// VITE_API_BASE in your hosting provider's environment variables to your
+// deployed backend URL (e.g. https://your-backend.onrender.com).
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
 
 function App() {
   const [page, setPage] = useState('home');
