@@ -5,9 +5,10 @@ __pycache__/
 *.pyc
 
 # ML Models
-weights/
-backend/weights/
-*.h5
+weights/*
+backend/weights/*
+!backend/weights/xception_deepfake_image.h5
+
 *.pth
 *.pt
 
