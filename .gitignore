@@ -5,23 +5,29 @@ __pycache__/
 *.pyc
 
 # ML Models
-weights/*
-backend/weights/*
-!backend/weights/xception_deepfake_image.h5
+weights/
+backend/weights/
 
+*.h5
 *.pth
 *.pt
 
-# Dataset
+# Datasets
 datasets/
 dataset/
 
 # Frontend
 node_modules/
+frontend/node_modules/
 dist/
 
-# Environment
+# Environment Variables
 .env
+.env.local
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Build / Cache
+*.log
+.cache/
