@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import os
 
+# NEW: Hugging Face model downloader
+from huggingface_hub import hf_hub_download
+
 import detector
 
 app = FastAPI(title="Deepfake Detection API")
@@ -28,15 +31,31 @@ IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
 
 WEIGHTS_DIR = os.path.join(os.path.dirname(__file__), "weights")
 
-# Model priority, highest first. main.py picks the strongest available
-# option automatically — no code changes needed as you add trained weights.
-#   1. Keras models trained via train_image.py / train_video.py
-#      (Xception transfer learning / InceptionV3+GRU, ported from the
-#      reference notebook — the strongest option once trained)
-#   2. Torch CNN trained via train.py (ResNet18 from scratch)
-#   3. Heuristic forensic-signal analyzer in detector.py (no training required,
-#      but not a validated classifier — see README)
+# Create weights directory if missing
+os.makedirs(WEIGHTS_DIR, exist_ok=True)
+
+# ---------------------------------------------------
+# DOWNLOAD MODEL FROM HUGGING FACE IF NOT PRESENT
+# ---------------------------------------------------
 KERAS_IMAGE_PATH = os.path.join(WEIGHTS_DIR, "xception_deepfake_image.h5")
+
+if not os.path.exists(KERAS_IMAGE_PATH):
+    try:
+        print("Downloading model from Hugging Face...")
+
+        hf_hub_download(
+            repo_id="amitdhotre/veritas-model",
+            filename="xception_deepfake_image.h5",
+            local_dir=WEIGHTS_DIR
+        )
+
+        print("Model downloaded successfully.")
+
+    except Exception as e:
+        print(f"Model download failed: {e}")
+
+# ---------------------------------------------------
+
 KERAS_VIDEO_PATH = os.path.join(WEIGHTS_DIR, "video_gru.keras")
 TORCH_WEIGHTS_PATH = os.path.join(WEIGHTS_DIR, "deepfake_cnn.pth")
 
@@ -46,6 +65,7 @@ TORCH_AVAILABLE = os.path.exists(TORCH_WEIGHTS_PATH)
 
 if KERAS_IMAGE_AVAILABLE or KERAS_VIDEO_AVAILABLE:
     import keras_inference
+
 if TORCH_AVAILABLE:
     from cnn_inference import score_with_cnn
 
@@ -69,18 +89,23 @@ async def analyze_media(file: UploadFile = File(...)):
         if is_image and KERAS_IMAGE_AVAILABLE:
             analysis = keras_inference.score_image(content)
             model_name = "Xception (transfer learning, notebook-trained)"
+
         elif is_video and KERAS_VIDEO_AVAILABLE:
             analysis = keras_inference.score_video(content)
             model_name = "InceptionV3+GRU (notebook-trained)"
+
         elif TORCH_AVAILABLE:
             analysis = score_with_cnn(content, is_video)
             model_name = detector.MODEL_NAME_CNN
+
         elif is_video:
             analysis = detector.analyze_video_bytes(content)
             model_name = detector.MODEL_NAME_HEURISTIC
+
         else:
             analysis = detector.analyze_image_bytes(content)
             model_name = detector.MODEL_NAME_HEURISTIC
+
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
 
@@ -110,6 +135,7 @@ async def root():
         mode = "trained-torch-cnn"
     else:
         mode = "heuristic-forensic-analyzer"
+
     return {
         "status": "Backend is running successfully",
         "mode": mode,
