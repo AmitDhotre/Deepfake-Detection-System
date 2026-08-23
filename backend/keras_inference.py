@@ -28,18 +28,23 @@ _image_model = None
 _video_model = None
 _feature_extractor = None
 
-
 def _load_image_model():
     global _image_model
     if _image_model is None:
-        _image_model = keras.models.load_model(IMAGE_MODEL_PATH)
+        _image_model = keras.models.load_model(
+            IMAGE_MODEL_PATH,
+            compile=False
+        )
     return _image_model
 
 
 def _load_video_model():
     global _video_model, _feature_extractor
     if _video_model is None:
-        _video_model = keras.models.load_model(VIDEO_MODEL_PATH)
+        _video_model = keras.models.load_model(
+            VIDEO_MODEL_PATH,
+            compile=False
+        )
         _feature_extractor = keras.applications.InceptionV3(
             weights="imagenet", include_top=False, pooling="avg",
             input_shape=(IMG_SIZE, IMG_SIZE, 3),
