@@ -30,15 +30,16 @@ _feature_extractor = None
 
 def _load_image_model():
     global _image_model
-    if _image_model is None:
-        print("Loading model:", IMAGE_MODEL_PATH)
 
+    print("Loading model...")
+
+    if _image_model is None:
         _image_model = keras.models.load_model(
             IMAGE_MODEL_PATH,
             compile=False
         )
 
-        print("Model loaded successfully")
+    print("Model loaded successfully")
 
     return _image_model
 
