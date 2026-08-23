@@ -1,5 +1,8 @@
 # For the notebook-ported models (train_image.py, train_video.py, keras_inference.py):
-tensorflow>=2.15.0
+tensorflow-cpu==2.12.0
+keras==2.12.0
+numpy==1.23.5
+h5py==3.8.0
 scikit-learn>=1.4.0
 
 # For the CSV-driven training/evaluation scripts (train_image_csv.py, evaluate.py):
