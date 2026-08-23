@@ -16,8 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Uncomment this line once you have a trained model to serve in production
 # (adds tensorflow/torch — a much larger image, but needed for real inference):
-# COPY requirements-train.txt .
-# RUN pip install --no-cache-dir -r requirements-train.txt
+COPY requirements-train.txt .
+RUN pip install --no-cache-dir -r requirements-train.txt
 
 COPY . .
 
