@@ -1,22 +1,7 @@
-# For the notebook-ported models (train_image.py, train_video.py, keras_inference.py):
-# tensorflow-cpu==2.12.0
-# keras==2.12.0
-# numpy==1.23.5
-# h5py==3.8.0
-# scikit-learn>=1.4.0
-
 tensorflow==2.15.0
 keras==2.15.0
+numpy==1.26.4
+h5py==3.10.0
 scikit-learn==1.4.2
 pandas==2.2.2
-# For the CSV-driven training/evaluation scripts (train_image_csv.py, evaluate.py):
-pandas>=2.0.0
-
-# Optional — only needed if you use download_dataset.py to fetch the dataset
-# via kagglehub instead of downloading the zip manually from the Kaggle website:
 kagglehub>=0.3.0
-
-# For the alternative torch-based path (train.py, cnn_inference.py) — only
-# needed if you use that path instead of the Keras models above:
-# torch>=2.2.0
-# torchvision>=0.17.0
